@@ -1,0 +1,24 @@
+            <div class="row justify-content-center">
+                <!-- Post A Comment -->
+                {% if request.user.is_authenticated %}
+                <div class="col-12 col-lg-6">
+                    <div class="post-a-comments mb-70">
+                        <h4>Post a Comment</h4>
+
+                        <form action="." method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form }}
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn clever-btn w-100">Post A Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+            </div>

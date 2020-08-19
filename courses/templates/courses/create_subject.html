@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<title>Clever - Education &amp; Courses Template | Home</title>
+    
+{% block content %}
+{% comment %} <div class="col-6 offset-2 mb-4 mt-4"> {% endcomment %}
+<div class="container">
+    <h3>Create new Subject</h3>
+    <form class="form-control" method="POST" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy}}
+        <input class="btn btn-primary" name='Create' type="submit">
+    </form>
+<div>
+{% endblock content %}

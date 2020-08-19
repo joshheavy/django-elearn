@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+    
+{% block content %}
+
+    <!-- ##### Blog Area Start ##### -->
+    <section class="blog-area blog-page section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="blog-catagories mb-70 d-flex flex-wrap justify-content-between">
+
+                        <!-- Single Catagories -->
+                        <div class="single-catagories bg-img" style="background-image: url({% static 'img/bg-img/bc1.jpg' %});">
+                            <a href="#">
+                                <h6>Art &amp; Design</h6>
+                            </a>
+                        </div>
+
+                        <!-- Single Catagories -->
+                        <div class="single-catagories bg-img" style="background-image: url({% static 'img/bg-img/bc2.jpg' %});">
+                            <a href="#">
+                                <h6>Business</h6>
+                            </a>
+                        </div>
+
+                        <!-- Single Catagories -->
+                        <div class="single-catagories bg-img" style="background-image: url({% static 'img/bg-img/bc3.jpg' %});">
+                            <a href="#">
+                                <h6>IT &amp; Software</h6>
+                            </a>
+                        </div>
+
+                        <!-- Single Catagories -->
+                        <div class="single-catagories bg-img" style="background-image: url({% static 'img/bg-img/bc4.jpg' %});">
+                            <a href="#">
+                                <h6>Languages</h6>
+                            </a>
+                        </div>
+
+                        <!-- Single Catagories -->
+                        <div class="single-catagories bg-img" style="background-image: url({% static 'img/bg-img/bc5.jpg' %});">
+                            <a href="#">
+                                <h6>Programming Languages</h6>
+                            </a>
+                        </div>
+
+                        <!-- Single Catagories -->
+                        <div class="single-catagories bg-img" style="background-image: url({% static 'img/bg-img/bc6.jpg' %});">
+                            <a href="#">
+                                <h6>psychology</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Blog Area -->
+                {% for post in object_list %}
+                <div class="col-12 col-lg-6">
+                    <div class="single-blog-area mb-100 wow fadeInUp" data-wow-delay="250ms">
+                        <img src="{{ post.thumbnail.url }}" alt="" width="200" height="200">
+                        <!-- Blog Content -->
+                        <div class="blog-content">
+                            <a href="{{ post.get_absolute_url }}" class="blog-headline">
+                                <h4>{{ post.title }}</h4>
+                            </a>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">{{ post.author }}</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">{{ post.category }}</a>
+                            </div>
+                            <p>{{ post.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% include 'pagination.html' %}
+    </section>
+    <!-- ##### Blog Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    {% include 'footer.html' %}
+    <!-- ##### Footer Area End ##### -->
+
+{% endblock %}
